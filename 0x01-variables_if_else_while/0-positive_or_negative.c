@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
+#include <stdio.h>
+/*more headers goes there */
 
 /**
- * main - Entry point
+ * main - Determines if variable n is positive or negative
  *
  * Return: Always 0 (Success)
  */
@@ -16,15 +17,15 @@ int main(void)
 	/* your code goes there */
 	if (n > 0)
 	{
-		printf("%d is positive\n", n)
+		printf("%d is positive\n", n);
 	}
-	if else(n == 0)
+	else if (n == 0)
 	{
-		printf("%d is zero\n", n)
+		printf("%d is zero\n", n);
 	}
 	else
 	{
-		printf("%d is negative\n", n)
+		printf("%d is negative\n", n);
 	}
 
 	return (0);
