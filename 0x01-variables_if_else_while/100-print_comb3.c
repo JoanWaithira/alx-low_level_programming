@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+/**
+ * main - A program that prints all possible different combinations of digits
+ *
+ * Return: Always 0 (Success)
+ */
+
+int main(void)
+{
+	int n;
+	int m;
+
+	for (n ='0'; n <= '9'; n++)
+	{
+	for (m = n + 1; m <= '9'; m++)
+	{
+	if (m != n)
+	{
+	putchar(n);
+	putchar(m);
+	if (m == '8' && n == '9')
+	continue;
+	putchar(',');
+	putchar(' ');
+	}
+	}
+	}
+	putchar('\n');
+	return (0);
+}
