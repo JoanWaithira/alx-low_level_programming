@@ -7,19 +7,18 @@
 int main(void)
 {
 	int n = 0;
-	long j = 1;
-	long k = 2, sum = k;
+	long j = 1, k = 2, sum = 0, next;
 
-	while (k + j < 4000000)
+	for (n = 1; n <= 33; ++n)
 	{
-		k += j;
-		if (k % 2 == 0)
+		if (j < 4000000 && (j % 2) == 0)
 		{
-			sum += k;
-			j = k - j;
+			sum = sum + j;
 		}
-		n++;
+		next = j + k;
+		j = k;
+		k = next;
 	}
-		printf("%ld\n", sum);
+	printf("%lu\n", sum);
 	return (0);
 }
