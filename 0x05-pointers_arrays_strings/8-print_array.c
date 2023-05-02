@@ -2,8 +2,8 @@
 #include <stdio.h>
 /**
  * print_array - A function that prins elements of an array of integers
- * @a: integer one
- * @n: integer two
+ * @a: integer on to be printed
+ * @n: integer two to be printed
  * Return: Always 0 Success
  */
 void print_array(int *a, int n)
