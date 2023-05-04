@@ -11,6 +11,7 @@ char *cap_string(char *ch)
 	int a = 0;
 	int b;
 	int n[] = {9, 10, 32, 33, 34, 40, 41, 44, 46, 59, 63, 123, 125};
+
 	while (ch[a] != '\0')
 	{
 		if (ch[a] >= 'a' && ch[a] <= 'z')
@@ -21,11 +22,11 @@ char *cap_string(char *ch)
 			}
 			else
 			{
-				for (b =0; b <= 12; b++)
+				for (b = 0; b <= 12; b++)
 				{
-					if (n[b] == ch[a] -1)
+					if (n[b] == ch[a - 1])
 					{
-						ch[a] = ch[a] -32;
+						ch[a] = ch[a] - 32;
 					}
 				}
 			}
@@ -34,6 +35,3 @@ char *cap_string(char *ch)
 	}
 	return (ch);
 }
-
-							
-
