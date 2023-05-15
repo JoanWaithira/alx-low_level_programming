@@ -41,7 +41,8 @@ char **strtow(char *str)
 	int a, b = 0, length = 0, w, e = 0;
 	int first, last;
 
-	for (a = 0; *(str + length); length++)
+	while(*(str + length))
+		length++;
 	w = word_count(str);
 
 	if (w == 0)
