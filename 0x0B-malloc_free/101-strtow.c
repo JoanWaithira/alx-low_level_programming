@@ -24,7 +24,7 @@ char word_count(char *s)
 			c++;
 		}
 	}
-	return (b);
+	return (c);
 }
 
 /**
