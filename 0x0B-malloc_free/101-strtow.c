@@ -12,7 +12,7 @@ char word_count(char *s)
 	int b = 0;
 	int c = 0;
 
-	for (; s[b] != '\0'; b++)
+	for (b = 0; s[b] != '\0'; b++)
 	{
 		if (s[b] == ' ')
 		{
