@@ -7,7 +7,7 @@
  */
 int is_digit(char *s)
 {
-	int a ;
+	int a;
 
 	while (s[a])
 	{
@@ -60,12 +60,9 @@ void errors(void)
  */
 int main(int argc, char *argv[])
 {
-	char *ptr1;
-	char *ptr2;
-	int *res;
-	int len1, len2, len, i, carry, d1, d2, a = 0;
-	
-	
+	char *ptr1, *ptr2
+	int len1, len2, len, i, carry, d1, d2, a = 0, *res;
+
 	ptr1 = argv[1], ptr2 = argv[2];
 	if (argc != 3 || !is_digit(ptr1) || !is_digit(ptr2))
 		errors();
