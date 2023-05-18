@@ -7,18 +7,14 @@
  */
 int is_digit(char *s)
 {
-	int a;
+	int a ;
 
-	a = 0;
-
-	for (; s[a]; a++)
+	while (s[a])
 	{
 		if (s[a] < '0' || s[a] > '9')
-		{
 			return (0);
-		}
+		a++;
 	}
-
 	return (1);
 }
 
@@ -34,7 +30,11 @@ int _strlen(char *s)
 
 	a = 0;
 
-	for (; s[a] != '\0'; a++)
+	while (s[a] != '\0')
+	{
+		a++;
+	}
+
 	return (a);
 }
 
@@ -60,60 +60,47 @@ void errors(void)
  */
 int main(int argc, char *argv[])
 {
-	char *ptr;
+	char *ptr1;
 	char *ptr2;
 	int *res;
-	int a, b, c, d, e, g, h;
-
-	ptr = argv[1], ptr2 = argv[2];
-
-	if (argc != 3 || !is_digit(ptr) || !is_digit(ptr2))
-	{
+	int len1, len2, len, i, carry, d1, d2, a = 0;
+	
+	
+	ptr1 = argv[1], ptr2 = argv[2];
+	if (argc != 3 || !is_digit(ptr1) || !is_digit(ptr2))
 		errors();
-	}
-	a = _strlen(ptr);
-	b = _strlen(ptr2);
-	c = a + b + 1;
-
-	res = malloc(sizeof(int) * c);
-
+	len1 = _strlen(ptr1);
+	len2 = _strlen(ptr2);
+	len = len1 + len2 + 1;
+	res = malloc(sizeof(int) * len);
 	if (!res)
-	{
 		return (1);
-	}
-	for(d = 0; d <= a + b; d++)
+	for (i = 0; i <= len1 + len2; i++)
+		res[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		res[d] = 0;
-	}
-	for (a = a - 1; a >= 0; a--)
-	{
-		f = ptr[a] - '0';
-		e = 0;
-		
-		for (b = _strlen(ptr2) - 1; b >= 0; b--)
-			{
-				b = ptr2[b] - '0';
-				e += res [a + b + 1] + (g * h);
-				res[a + b + 1] = e % 10;
-				e /= 10;
-			}
-		if (e > 0)
+		d1 = ptr1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(ptr2) - 1; len2 >= 0; len2--)
 		{
-			res[a + b + 1] += e;
+			d2 = ptr2[len2] - '0';
+			carry += res[len1 + len2 + 1] + (d1 * d2);
+			res[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
 		}
+		if (carry > 0)
+			res[len1 + len2 + 1] += carry;
 	}
-	for (d = 0; d < c - 1; d++)
+	for (i = 0; i < len - 1; i++)
 	{
-		if (res[c])
-			j = 1;
-		if (j)
-			_putchar(res[d] + '0');
+		if (res[i])
+			a = 1;
+		if (a)
+			_putchar(res[i] + '0');
 	}
-	if (!j)
+	if (!a)
 		_putchar('0');
 	_putchar('\n');
 	free(res);
 	return (0);
-		
 }
-
