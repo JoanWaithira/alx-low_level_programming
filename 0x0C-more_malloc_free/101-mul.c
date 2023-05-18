@@ -60,8 +60,8 @@ void errors(void)
  */
 int main(int argc, char *argv[])
 {
-	char *ptr1, *ptr2
-	int len1, len2, len, i, carry, d1, d2, a = 0, *res;
+	char *ptr1, *ptr2;
+	int len1, len2, len, i, carry, d1, d2, *res, a = 0;
 
 	ptr1 = argv[1], ptr2 = argv[2];
 	if (argc != 3 || !is_digit(ptr1) || !is_digit(ptr2))
